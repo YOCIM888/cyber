@@ -481,59 +481,75 @@ export function finishSession(game) {
 }
 
 function getRank(returnRatio) {
-  if (returnRatio >= 1.5) {
+  if (returnRatio >= 2) {
     return {
-      grade: 'S+',
-      label: '霓虹传说',
-      blurb: '你让这座城市重新计算了风险。',
+      grade: 'SSS',
+      label: '霓虹神话',
+      blurb: '整座城市的资本流向都在复述你的名字。',
       tone: 'myth',
     }
   }
-  if (returnRatio >= 0.8) {
+  if (returnRatio >= 1.5) {
+    return {
+      grade: 'SS',
+      label: '城市传说',
+      blurb: '你的仓位成了交易所里流传的下一个传说。',
+      tone: 'legend',
+    }
+  }
+  if (returnRatio >= 1) {
     return {
       grade: 'S',
       label: '资本幽灵',
       blurb: '市场记住了你的每一次下单。',
-      tone: 'legend',
+      tone: 'elite',
     }
   }
-  if (returnRatio >= 0.4) {
+  if (returnRatio >= 0.5) {
     return {
       grade: 'A',
       label: '赛博猎手',
       blurb: '你嗅到了机会，并且在它消失前动手。',
-      tone: 'elite',
+      tone: 'good',
     }
   }
-  if (returnRatio >= 0.15) {
+  if (returnRatio >= 0.3) {
     return {
       grade: 'B',
       label: '街头赢家',
       blurb: '你比大多数交易员更懂得何时收手。',
-      tone: 'good',
+      tone: 'stable',
+    }
+  }
+  if (returnRatio >= 0.1) {
+    return {
+      grade: 'C',
+      label: '霓虹操盘手',
+      blurb: '你跑赢了交易税，也跑赢了大多数散户。',
+      tone: 'stable',
     }
   }
   if (returnRatio >= 0) {
     return {
-      grade: 'C',
+      grade: 'D',
       label: '霓虹幸存者',
       blurb: '至少，你带着本金离开了牌桌。',
-      tone: 'stable',
-    }
-  }
-  if (returnRatio >= -0.2) {
-    return {
-      grade: 'D',
-      label: '被套牢者',
-      blurb: '市场没有针对你，它只是继续运行。',
       tone: 'warn',
     }
   }
+  if (returnRatio >= -0.3) {
+    return {
+      grade: 'E',
+      label: '被套牢者',
+      blurb: '市场没有针对你，它只是继续运行。',
+      tone: 'danger',
+    }
+  }
   return {
-    grade: 'E',
+    grade: 'F',
     label: '系统弃子',
     blurb: '霓虹还在亮，但你的账户已经离开牌桌。',
-    tone: 'danger',
+    tone: 'severe',
   }
 }
 

@@ -246,6 +246,10 @@ onBeforeUnmount(() => {
   --tone-color: var(--pink);
 }
 
+.tone-severe {
+  --tone-color: #ff2e55;
+}
+
 .result-bg {
   position: absolute;
   inset: 0;
